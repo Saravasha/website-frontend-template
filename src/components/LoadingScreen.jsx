@@ -12,7 +12,7 @@ const LoadingScreen = () => {
       transition={{ duration: 1 }}
     >
       <span className="mt-8 text-[6vw] z-1 sm:text-7xl md:text-9xl font-thin text-white  text-center">
-        __PROJECT_NAME__
+        
       </span>
       <img
         className=" p-4 h-full  z-0 blur-xs top-0  flex justify-center  absolute "

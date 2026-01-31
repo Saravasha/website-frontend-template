@@ -34,11 +34,11 @@ export default function useElementStyle(styles, styleName, isLoading) {
     };
 
     const detectedType = Object.keys(typeKeywords).find((type) =>
-      normalizedName.includes(type)
+      normalizedName.includes(type),
     );
 
     const style = styles.find(
-      (s) => s.name.trim().toLowerCase() === normalizedName
+      (s) => s.name.trim().toLowerCase() === normalizedName,
     );
 
     if (!style) {
@@ -46,8 +46,8 @@ export default function useElementStyle(styles, styleName, isLoading) {
       return detectedType === "text"
         ? { color: "#ff00ff" }
         : detectedType === "background"
-        ? { background: "#ff00ff" }
-        : {};
+          ? { background: "#ff00ff" }
+          : {};
     }
 
     switch (detectedType) {
@@ -81,7 +81,7 @@ export default function useElementStyle(styles, styleName, isLoading) {
 const navbarStyle = useElementStyle(
   styles,
   "Navbar Background Color",
-  isLoading
+  isLoading,
 );
 const fontStyle = useElementStyle(styles, "Navbar Font Style", isLoading);
 
