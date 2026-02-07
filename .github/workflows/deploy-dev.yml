@@ -1,4 +1,4 @@
-name: Deploy to Staging
+name: Deploy to Staging from Development
 
 on:
   push:
@@ -31,8 +31,9 @@ jobs:
       - name: Sync build to VPS folder
         run: |
           # Adjust this path if your nginx root differs
-          sudo rm -rf /opt/apps/frontend-staging/*
-          sudo cp -a dist/. /opt/apps/frontend-staging/
+          sudo rm -rf __FRONTEND_DEPLOY_PATH_STAGING__/*
+          sudo mkdir -p __FRONTEND_DEPLOY_PATH_STAGING__
+          sudo cp -a dist/. __FRONTEND_DEPLOY_PATH_STAGING__/
 
       - name: Restart nginx
         run: sudo service nginx restart
