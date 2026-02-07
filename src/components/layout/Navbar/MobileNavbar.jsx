@@ -79,7 +79,7 @@ export default function MobileNavbar({ isModalVisible }) {
           className=" italic text-5xl sm:text-5xl md:text-5xl lg:text-2xl xl:text-3xl font-thin cursor-pointer drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          
+          __PROJECT_NAME__
         </div>
         <div
           style={BurgerMenuBgColor}
