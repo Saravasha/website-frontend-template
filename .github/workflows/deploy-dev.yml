@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy Frontend
+    name: Build and Deploy Frontend to Staging
     runs-on: [self-hosted, Staging]
 
     steps:
