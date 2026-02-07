@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy to Production from Staging
 
 on:
   push:
@@ -27,8 +27,9 @@ jobs:
 
       - name: Sync build to VPS production folder
         run: |
-          sudo rm -rf /opt/apps/frontend-production/*
-          sudo cp -a dist/. /opt/apps/frontend-production/
+          sudo rm -rf __FRONTEND_DEPLOY_PATH_PRODUCTION__/*
+          sudo mkdir -p __FRONTEND_DEPLOY_PATH_PRODUCTION__
+          sudo cp -a dist/. __FRONTEND_DEPLOY_PATH_PRODUCTION__/
 
       - name: Restart nginx
         run: sudo service nginx restart
