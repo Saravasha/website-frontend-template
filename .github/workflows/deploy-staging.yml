@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy Frontend Production
+    name: Build and Deploy Frontend to Production
     runs-on: [self-hosted, Production]
 
     steps:

@@ -11,10 +11,12 @@ const useApi = () => {
   const [isLoading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  const assetUrl = import.meta.env.VITE_DOTNET_ASSET_API_URL_TARGET;
-  const pageUrl = import.meta.env.VITE_DOTNET_PAGE_API_URL_TARGET;
-  const colorUrl = import.meta.env.VITE_DOTNET_COLOR_API_URL_TARGET;
-  const directApi = import.meta.env.VITE_DOTNET_API_TARGET;
+  const apiBase = import.meta.env.VITE_DOTNET_API_BASE;
+  const assetUrl = `${apiBase}${import.meta.env.VITE_DOTNET_ASSET_API_URL_TARGET}`;
+  const pageUrl = `${apiBase}${import.meta.env.VITE_DOTNET_PAGE_API_URL_TARGET}`;
+  const colorUrl = `${apiBase}${import.meta.env.VITE_DOTNET_COLOR_API_URL_TARGET}`;
+
+  const directApi = apiBase;
 
   const isDev = environment !== "production";
 
