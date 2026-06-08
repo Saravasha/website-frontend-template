@@ -9,35 +9,37 @@ export default defineConfig({
   "process.env": {
     DOTNET_ASSET_API_URL:
       process.env.VITE_DOTNET_ASSET_API_URL ||
-      "https://admin.__DOMAIN__/api/react/asset",
+      "https://admin.__DOMAIN____API_BASE_PATH__/api/react/asset",
     DOTNET_ASSET_API_URL_STAGE:
       process.env.VITE_DOTNET_ASSET_API_URL ||
-      "https://admin-staging.__DOMAIN__/api/react/asset",
+      "https://admin-staging.__DOMAIN____API_BASE_PATH__/api/react/asset",
     DOTNET_ASSET_API_URL_DEV:
       process.env.VITE_DOTNET_ASSET_API_URL ||
       "http://localhost:5000/api/react/asset",
     DOTNET_PAGE_API_URL:
       process.env.VITE_DOTNET_PAGE_API_URL ||
-      "https://admin.__DOMAIN__/api/react/page",
+      "https://admin.__DOMAIN____API_BASE_PATH__/api/react/page",
     DOTNET_PAGE_API_URL_STAGE:
       process.env.VITE_DOTNET_PAGE_API_URL ||
-      "https://admin-staging.__DOMAIN__/api/react/page",
+      "https://admin-staging.__DOMAIN____API_BASE_PATH__/api/react/page",
     DOTNET_PAGE_API_URL_DEV:
       process.env.VITE_DOTNET_PAGE_API_URL ||
       "http://localhost:5000/api/react/page",
     DOTNET_COLOR_API_URL:
       process.env.VITE_DOTNET_COLOR_API_URL ||
-      "https://admin.__DOMAIN__/api/react/color",
+      "https://admin.__DOMAIN____API_BASE_PATH__/api/react/color",
     DOTNET_COLOR_API_URL_STAGE:
       process.env.VITE_DOTNET_COLOR_API_URL ||
-      "https://admin-staging.__DOMAIN__/api/react/color",
+      "https://admin-staging.__DOMAIN____API_BASE_PATH__/api/react/color",
     DOTNET_COLOR_API_URL_DEV:
       process.env.VITE_DOTNET_COLOR_API_URL ||
       "http://localhost:5000/api/react/color",
     DOTNET_API_URL:
-      process.env.VITE_DOTNET_API_TARGET || "https://admin.__DOMAIN__/",
+      process.env.VITE_DOTNET_API_TARGET ||
+      "https://admin.__DOMAIN____API_BASE_PATH__/",
     DOTNET_API_URL_STAGE:
-      process.env.VITE_DOTNET_API_TARGET || "https://admin-staging.__DOMAIN__/",
+      process.env.VITE_DOTNET_API_TARGET ||
+      "https://admin-staging.__DOMAIN____API_BASE_PATH__/",
     DOTNET_API_URL_DEV:
       process.env.VITE_DOTNET_API_TARGET || "http://localhost:5000/",
   },
