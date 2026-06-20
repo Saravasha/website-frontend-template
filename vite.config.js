@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "__PROFILE_BASE__",
+  // if parent then base: "/", else "myapps/*childapp*"
   plugins: [tailwindcss(), react()],
   "process.env": {
     DOTNET_ASSET_API_URL:
