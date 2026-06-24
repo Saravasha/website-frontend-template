@@ -28,7 +28,7 @@ export const Page = ({ page }) => {
 
     // Check for meaningful non-text content
     const hasMedia = tempDiv.querySelector(
-      "img, video, audio, iframe, object, embed"
+      "img, video, audio, iframe, object, embed",
     );
 
     return !hasMedia;
@@ -47,7 +47,7 @@ export const Page = ({ page }) => {
         !src.startsWith("https://") &&
         !src.startsWith("//")
       ) {
-        img.setAttribute("src", joinUrl(directApi, src));
+        img.setAttribute("src", joinUrl(src));
       }
       if (!img.hasAttribute("alt")) img.setAttribute("alt", "");
       if (!img.hasAttribute("loading")) img.setAttribute("loading", "lazy");
@@ -64,7 +64,7 @@ export const Page = ({ page }) => {
           !src.startsWith("https://") &&
           !src.startsWith("//")
         ) {
-          source.setAttribute("src", joinUrl(directApi, src));
+          source.setAttribute("src", joinUrl(src));
         }
       }
     });
@@ -79,7 +79,7 @@ export const Page = ({ page }) => {
         !poster.startsWith("https://") &&
         !poster.startsWith("//")
       ) {
-        video.setAttribute("poster", joinUrl(directApi, poster));
+        video.setAttribute("poster", joinUrl(poster));
       }
 
       // Update nested source tag
@@ -92,7 +92,7 @@ export const Page = ({ page }) => {
           !src.startsWith("https://") &&
           !src.startsWith("//")
         ) {
-          source.setAttribute("src", joinUrl(directApi, src));
+          source.setAttribute("src", joinUrl(src));
         }
       }
     });
@@ -155,7 +155,7 @@ export const Page = ({ page }) => {
                   className="ContentContainer italic text-center text-shadow-2xs flex flex-col drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,1)] gap-4 bg-inherit justify-items-center justify-center items-center p-4 flex-grow w-full "
                   dangerouslySetInnerHTML={{
                     __html: DOMPurify.sanitize(
-                      prependApiUrlToMedia(content.container)
+                      prependApiUrlToMedia(content.container),
                     ),
                   }}
                   style={colorInStyleContentBody}
