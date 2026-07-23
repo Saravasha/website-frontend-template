@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useData } from "../../api/ApiContext";
+import AssetRenderer from "./AssetRenderer";
 
 const Modal = ({
   clickedAsset,
@@ -8,18 +9,6 @@ const Modal = ({
   handleRotationLeft,
   handleRotationRight,
 }) => {
-  const { directApi } = useData();
-
-  const joinUrl = (base, path) =>
-    `${base.replace(/\/+$/, "")}/${path.replace(/^\/+/, "")}`;
-
-  const fileUrl = clickedAsset?.fileUrl
-    ? joinUrl(directApi, clickedAsset.fileUrl)
-    : null;
-
-  const mediaType = clickedAsset?.type?.toLowerCase();
-  const streamUrl = `${directApi}/Asset/Stream/${clickedAsset.id}`;
-
   const handleClick = (e) => {
     if (e.target.classList.contains("dismiss")) {
       setClickedAsset(null);
@@ -67,33 +56,17 @@ const Modal = ({
 
           {/* Media */}
           <div className="flex justify-center w-full p-4">
-            {mediaType === "image" && fileUrl && (
-              <img
-                src={fileUrl}
-                alt={clickedAsset.name}
-                className="max-w-full h-auto"
-              />
-            )}
-            {mediaType === "video" && streamUrl && (
-              <video
-                controls
-                preload="metadata"
-                autoPlay
-                // src={fileUrl}
-                className="max-w-full h-auto"
-              >
-                <source src={streamUrl} type="video/mp4" />
-              </video>
-            )}
-            {mediaType === "audio" && streamUrl && (
-              <audio controls src={streamUrl} className="w-full" />
-            )}
-            {!fileUrl && <div className="text-white">Media not available.</div>}
+            <AssetRenderer asset={clickedAsset} className="max-w-full h-auto" />
           </div>
 
-          <p className="text-white text-2xl font-thin text-center px-10 m-4">
-            {clickedAsset.description}
-          </p>
+          {/* Description and Categories */}
+          <div className="flex flex-col items-center justify-center w-full">
+            {clickedAsset.description && (
+              <p className="text-white text-2xl font-thin text-center px-10 m-4">
+                {clickedAsset.description}
+              </p>
+            )}
+          </div>
 
           <div className="flex justify-center pb-4 flex-wrap">
             {clickedAsset.categories?.map((category) => (

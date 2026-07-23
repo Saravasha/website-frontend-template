@@ -189,3 +189,103 @@ h5 {
 /* .ContentContainer tr:nth-child(even) {
   background-color: #b90000;
 } */
+.asset-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.asset-open {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--radius-xl);
+}
+
+.asset-open:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--radius-xl);
+}
+
+.asset-download {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--radius-xl);
+}
+
+.asset-download:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--radius-xl);
+}
+
+.asset-render {
+  line-height: 1.7;
+}
+
+.asset-render h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.asset-render h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.asset-render h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.asset-render h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1.25rem;
+}
+
+.asset-render h5 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.asset-render p {
+  margin-bottom: 1rem;
+}
+
+.asset-render ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+.asset-render ol {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+.asset-render li {
+  margin-bottom: 0.5rem;
+}
+
+.asset-render pre {
+  background: #1e1e1e;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.asset-render code {
+  font-family: monospace;
+}
+
+.asset-render hr {
+  margin: 2rem 0;
+}
