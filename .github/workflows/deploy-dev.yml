@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     name: Build and Deploy Frontend to Staging
+    if: github.event.repository.name != 'website-template-frontend'
     runs-on: [self-hosted, Staging]
 
     steps:
