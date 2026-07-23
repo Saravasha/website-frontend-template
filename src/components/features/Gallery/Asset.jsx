@@ -13,6 +13,8 @@ const Asset = ({ asset }) => {
   const isImage = asset.type === "Image";
   const isVideo = asset.type === "Video";
   const isAudio = asset.type === "Audio";
+  const isDocument = asset.type === "Document";
+  const isText = asset.type === "Text";
 
   const fileUrl = asset.fileUrl
     ? `${directApi}/${joinUrl(asset.fileUrl)}`
@@ -38,9 +40,30 @@ const Asset = ({ asset }) => {
 
       {/* Audio Support */}
       {isAudio && (
-        <audio controls src={streamUrl} className="w-full">
-          Your browser does not support the audio element.
-        </audio>
+        <div className="flex flex-col items-center justify-center bg-blue-200 rounded p-4">
+          <span className="text-gray-500 text-xl">{asset.name}</span>
+          <audio controls src={streamUrl} className="w-full">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      )}
+
+      {/* Document Support */}
+      {isDocument && (
+        <div className="flex flex-col items-center justify-center p-4">
+          <div className="bg-gray-400 border-2 border-dotted rounded-xl w-full h-full flex items-center justify-center p-4">
+            <span className="text-gray-500">{asset.name}</span>
+          </div>
+        </div>
+      )}
+
+      {/* Text Support */}
+      {isText && (
+        <div className="flex flex-col items-center justify-center p-4">
+          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-full flex items-center justify-center p-4">
+            <span className="text-gray-500">{asset.name}</span>
+          </div>
+        </div>
       )}
 
       {/* Video Asset with Thumbnail */}
@@ -80,7 +103,7 @@ const Asset = ({ asset }) => {
       )}
 
       {/* Unknown Type */}
-      {!isImage && !isVideo && !isAudio && (
+      {!isImage && !isVideo && !isAudio && !isDocument && !isText && (
         <div className="text-gray-500 text-sm">
           Unsupported asset type: {asset.type}
         </div>
