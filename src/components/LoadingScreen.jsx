@@ -11,9 +11,11 @@ const LoadingScreen = () => {
       exit={{ opacity: 0, y: -100 }}
       transition={{ duration: 1 }}
     >
+      {/* MULTI-COMMITTER:PROTECTED:START LoadingScreen */}
       <span className="mt-8 text-[6vw] z-1 sm:text-7xl md:text-9xl font-thin text-white  text-center">
         __PROJECT_NAME__
       </span>
+      {/* MULTI-COMMITTER:PROTECTED:END LoadingScreen */}
       <img
         className=" p-4 h-full  z-0 blur-xs top-0  flex justify-center  absolute "
         src={bgimg}
