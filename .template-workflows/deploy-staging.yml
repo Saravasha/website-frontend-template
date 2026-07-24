@@ -27,8 +27,12 @@ jobs:
 
       - name: Sync build to VPS production folder
         run: |
-          sudo rm -rf __FRONTEND_DEPLOY_PATH_PRODUCTION__/*
           sudo mkdir -p __FRONTEND_DEPLOY_PATH_PRODUCTION__
+          sudo find "__FRONTEND_DEPLOY_PATH_PRODUCTION__" \
+            -mindepth 1 \
+            -maxdepth 1 \
+            ! -name "myapps" \
+            -exec rm -rf {} +          
           sudo cp -a dist/. __FRONTEND_DEPLOY_PATH_PRODUCTION__/
 
       - name: Restart nginx
