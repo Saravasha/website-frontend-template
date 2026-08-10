@@ -14,7 +14,7 @@ export default function DesktopNavbar({ isModalVisible }) {
   const retryScrollTo = useRetryScrollTo();
 
   const baseClass =
-    "flex mt-4 justify-center cursor-pointer hover:animate-pulse text-shadow-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]";
+    "flex mt-4 justify-center cursor-pointer hover:animate-pulse select-none text-shadow-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]";
   const activeClass = "!text-gray-500 font-bold";
   const inactiveClass = "text-white hover:text-gray-700 hover:shadow-2xl";
 
@@ -91,29 +91,29 @@ export default function DesktopNavbar({ isModalVisible }) {
           >
             {page.title}
           </Link>
-          {page.contents.length > 0 && (
+          {page.chapters.length > 0 && (
             <div className="flex-grow flex-col flex mt-2 space-y-1 flex-1 text-center text-wrap">
-              {page.contents.map((content, subIndex) => (
+              {page.chapters.map((chapter, subIndex) => (
                 <Link
-                  key={`content-${page.id}-${content.id}`}
-                  to={`content-${page.id}-${content.id}`}
+                  key={`chapter-${page.id}-${chapter.id}`}
+                  to={`chapter-${page.id}-${chapter.id}`}
                   {...dryLinkProps}
                   onClick={() => {
                     setShow(false);
-                    retryScrollTo(`content-${page.id}-${content.id}`, {
+                    retryScrollTo(`chapter-${page.id}-${chapter.id}`, {
                       duration: 500,
                       smooth: "easeInOutQuart",
                       offset: navbarOffset,
                     });
                   }}
-                  onSetActive={() => setActiveSection(content.title)}
+                  onSetActive={() => setActiveSection(chapter.title)}
                   className={`${baseClass} text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl block ${
-                    activeSection === content.title
+                    activeSection === chapter.title
                       ? activeClass
                       : inactiveClass
                   }`}
                 >
-                  {content.title}
+                  {chapter.title}
                 </Link>
               ))}
             </div>

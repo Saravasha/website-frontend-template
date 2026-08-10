@@ -1,5 +1,8 @@
 import React from "react";
+import Document from "./AssetIcons/TextIcon.jsx";
 import { useData } from "../../api/ApiContext";
+import TextIcon from "./AssetIcons/TextIcon.jsx";
+import DocumentIcon from "./AssetIcons/DocumentIcon.jsx";
 
 const Asset = ({ asset }) => {
   const { directApi } = useData();
@@ -16,9 +19,7 @@ const Asset = ({ asset }) => {
   const isDocument = asset.type === "Document";
   const isText = asset.type === "Text";
 
-  const fileUrl = asset.fileUrl
-    ? `${directApi}/${joinUrl(asset.fileUrl)}`
-    : null;
+  const fileUrl = asset.fileUrl ? `${joinUrl(asset.fileUrl)}` : null;
   const streamUrl = `${directApi}/${joinUrl("Asset", "Stream", asset.id)}`;
   const thumbnailUrl = asset.thumbnailUrl
     ? `${directApi}/${joinUrl(asset.thumbnailUrl)}`
@@ -51,8 +52,9 @@ const Asset = ({ asset }) => {
       {/* Document Support */}
       {isDocument && (
         <div className="flex flex-col items-center justify-center p-4">
-          <div className="bg-gray-400 border-2 border-dotted rounded-xl w-full h-full flex items-center justify-center p-4">
-            <span className="text-gray-500">{asset.name}</span>
+          <div className="bg-red-500 border-2 border-dotted rounded-xl w-full h-full flex items-center justify-center p-4">
+            <DocumentIcon />
+            <span className="text-white">{asset.name}</span>
           </div>
         </div>
       )}
@@ -60,8 +62,10 @@ const Asset = ({ asset }) => {
       {/* Text Support */}
       {isText && (
         <div className="flex flex-col items-center justify-center p-4">
-          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-full flex items-center justify-center p-4">
-            <span className="text-gray-500">{asset.name}</span>
+          <div className="bg-blue-500 border-2 border-dashed rounded-xl w-full h-full flex items-center justify-center p-4">
+            {/* PDF Icon */}
+            <TextIcon />
+            <span className="text-white">{asset.name}</span>
           </div>
         </div>
       )}
@@ -94,7 +98,7 @@ const Asset = ({ asset }) => {
       {isVideo && !thumbnailUrl && (
         <video
           controls
-          src={streamUrl}
+          // src={streamUrl}
           className="max-w-full h-auto rounded shadow"
           preload="none"
         >
