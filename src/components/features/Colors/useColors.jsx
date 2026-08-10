@@ -28,25 +28,34 @@ export default function useColors(colorName) {
     if (isLoading || !Array.isArray(colors)) return {};
 
     const normalizedColorName = colorName.trim().toLowerCase();
-    const colorTypes = ["Background", "Text"];
+    const colorTypes = ["Background", "Text", "Fill"];
     const colorType = colorTypes.find((type) =>
-      normalizedColorName.includes(type.toLowerCase())
+      normalizedColorName.includes(type.toLowerCase()),
     );
 
     const color = colors.find(
-      (c) => c.name.trim().toLowerCase() === normalizedColorName
+      (c) => c.name.trim().toLowerCase() === normalizedColorName,
     );
 
     if (!color) {
       console.warn(`Color '${colorName}' not found`);
       return colorType === "Text"
         ? { color: "#ff00ff" }
-        : { background: "#ff00ff" };
+        : colorType === "Fill"
+          ? { fill: "#ff00ff" }
+          : { background: "#ff00ff" };
     }
 
     if (colorType === "Text") {
       return {
         color: isDark ? color.darkStartColor : color.startColor,
+        opacity: isDark ? color.darkOpacity : color.opacity,
+      };
+    }
+
+    if (colorType === "Fill") {
+      return {
+        fill: isDark ? color.darkStartColor : color.startColor,
         opacity: isDark ? color.darkOpacity : color.opacity,
       };
     }

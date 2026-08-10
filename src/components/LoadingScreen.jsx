@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const LoadingScreen = () => {
   return (
     <motion.div
-      className="w-screen h-screen flex bg-gradient-to-r from-green-900 to-green-500 flex-col gap-8 p-4 items-center justify-center shadow-2xl relative overflow-hidden"
+      className="w-screen h-screen flex bg-gradient-to-r from-gray-900 to-gray-100 flex-col gap-8 p-4 items-center justify-center shadow-2xl relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -100 }}

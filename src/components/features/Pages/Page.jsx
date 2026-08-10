@@ -1,13 +1,17 @@
 import { useData } from "../../api/ApiContext";
 import useColors from "../Colors/useColors";
+import useFonts from "../Fonts/useFonts";
 import PageHtmlRenderer from "./PageHtmlRenderer";
 
 export const Page = ({ page }) => {
   const { directApi } = useData();
 
   const colorInStyle = useColors("Page Header Text Color") || {};
+  const fontInStyle = useFonts("Page Header Text Font") || {};
+  const colorInStyleChapter = useColors("Chapter Header Text Color") || {};
   const colorInStyleContent = useColors("Content Header Text Color") || {};
   const colorInStylePageBody = useColors("Page Body Text Color") || {};
+  const colorInStyleChapterBody = useColors("Chapter Body Text Color") || {};
   const colorInStyleContentBody = useColors("Content Body Text Color") || {};
 
   const isEmptyHtml = (html) => {
@@ -30,6 +34,7 @@ export const Page = ({ page }) => {
   };
 
   return (
+    // Page
     <div
       className="Page bg-white/30 backdrop-blur-sm flex flex-col gap-4 rounded  shadow-2xl font-thin w-full [&_*]:w-full hover:shadow-2xl flex-grow h-full "
       key={`page-${page.id}`}
@@ -37,8 +42,8 @@ export const Page = ({ page }) => {
     >
       {/* page title */}
       <h2
-        className="PageTitle italic text-ellipsis text-shadow-2xs w-full flex text-center justify-center items-center align-middle bg-transparent/10 drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)] font-thin flex-grow h-full"
-        style={colorInStyle}
+        className="PageTitle italic text-ellipsis text-shadow-2xs w-full flex text-center justify-center select-none items-center align-middle bg-transparent/10 drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)] font-thin flex-grow h-full"
+        style={{ ...colorInStyle, ...fontInStyle }}
       >
         {page.title}
       </h2>
@@ -53,41 +58,84 @@ export const Page = ({ page }) => {
         </div>
       )}
       {
-        page.contents &&
-          page.contents.length > 0 &&
-          // <div className="Contents flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4">
+        // Chapters
+        page.chapters &&
+          page.chapters.length > 0 &&
+          // <div className="chapters flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4">
           // {
-          page.contents.map((content) => (
+          page.chapters.map((chapter) => (
             <div
-              className="Contents flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4"
-              key={`content-${page.id}-${content.id}`}
-              id={`content-${page.id}-${content.id}`}
+              className="Chapters flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4"
+              key={`chapter-${page.id}-${chapter.id}`}
+              id={`chapter-${page.id}-${chapter.id}`}
             >
               <h3
-                className="ContentTitle italic text-shadow-2xs text-center  bg-transparent/10  justify-center items-center flex flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)] p-4"
-                style={colorInStyleContent}
+                className="ChapterTitle italic text-shadow-2xs text-center select-none  bg-transparent/10  justify-center items-center flex flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)] p-4"
+                style={colorInStyleChapter}
               >
-                {content.title}
+                {chapter.title}
               </h3>
-              {/* content date */}
-              {content.dateString && (
+              {/* chapter date */}
+              {chapter.dateString && (
                 <h4
-                  className="ContentContainerDateString italic text-shadow-2xs text-center pt-4 justify-center items-center flex  flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)]"
-                  style={colorInStyleContent}
+                  className="ChapterContainerDateString italic text-shadow-2xs text-2xl text-center pt-4 justify-center items-center flex  flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)]"
+                  style={colorInStyleChapter}
                 >
-                  {content.dateString}
+                  {chapter.dateString}
                 </h4>
               )}
-              {/* content container */}
-              {content.container && (
-                <div className="ContentContainer italic text-center text-shadow-2xs flex flex-col drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,1)] gap-4 bg-inherit justify-items-center justify-center items-center p-4 flex-grow w-full ">
+              {/* chapter container */}
+              {chapter.container && (
+                <div className="ChapterContainer italic text-center text-shadow-2xs flex flex-col drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,1)] gap-4 bg-inherit justify-items-center justify-center items-center p-4 flex-grow w-full ">
                   <PageHtmlRenderer
-                    html={content.container}
-                    className="ContentContainer"
-                    style={colorInStyleContentBody}
+                    html={chapter.container}
+                    className="ChapterContainer"
+                    style={colorInStyleChapterBody}
                   />
                 </div>
               )}
+              {
+                // Contents
+                chapter.contents &&
+                  chapter.contents.length > 0 &&
+                  // <div className="chapters flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4">
+                  // {
+                  chapter.contents.map((content) => (
+                    <div
+                      className="Contents flex flex-col bg-transparent gap-4 justify-center items-center flex-grow w-full p-4"
+                      key={`content-${chapter.id}-${content.id}`}
+                      id={`content-${chapter.id}-${content.id}`}
+                    >
+                      <h3
+                        className="ContentTitle italic text-shadow-2xs text-center select-none  bg-transparent/10  justify-center items-center flex flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)] p-4"
+                        style={colorInStyleContent}
+                      >
+                        {content.title}
+                      </h3>
+                      {/* content date */}
+                      {content.dateString && (
+                        <h4
+                          className="ContentContainerDateString italic text-shadow-2xs text-2xl text-center pt-4 justify-center items-center flex  flex-grow w-full drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,0.8)]"
+                          style={colorInStyleContent}
+                        >
+                          {content.dateString}
+                        </h4>
+                      )}
+                      {/* content container */}
+                      {content.container && (
+                        <div className="ContentContainer italic text-center text-shadow-2xs flex flex-col drop-shadow-[0_1.2px_1.2px_rgba(0,3,3,1)] gap-4 bg-inherit justify-items-center justify-center items-center p-4 flex-grow w-full ">
+                          <PageHtmlRenderer
+                            html={content.container}
+                            className="ContentContainer"
+                            style={colorInStyleContentBody}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ))
+                // }
+                // </div>
+              }
             </div>
           ))
         // }

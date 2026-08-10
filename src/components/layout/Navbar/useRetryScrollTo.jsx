@@ -28,7 +28,7 @@ export default function useRetryScrollTo() {
           } else {
             if (environment !== "production") {
               console.warn(
-                `[retryScrollTo] Element "${target}" not found after ${maxRetries} attempts.`
+                `[retryScrollTo] Element "${target}" not found after ${maxRetries} attempts.`,
               );
             }
           }
@@ -45,13 +45,13 @@ export default function useRetryScrollTo() {
           } else if (stillNotVisible) {
             if (environment !== "production") {
               console.warn(
-                `[retryScrollTo] "${target}" still not in view after ${attempts} attempts.`
+                `[retryScrollTo] "${target}" still not in view after ${attempts} attempts.`,
               );
             }
           } else {
             if (environment !== "production") {
               console.log(
-                `[retryScrollTo] Scrolled to "${target}" on attempt ${attempts}.`
+                `[retryScrollTo] Scrolled to "${target}" on attempt ${attempts}.`,
               );
             }
           }
@@ -60,7 +60,7 @@ export default function useRetryScrollTo() {
 
       scrollAttempt();
     },
-    [environment, isInViewport]
+    [environment, isInViewport],
   );
 
   return retryScrollTo;

@@ -61,6 +61,9 @@ const PageHtmlRenderer = ({ html, className, style }) => {
   };
 
   useEffect(() => {
+    if (!html || !directApi) {
+      return null;
+    }
     if (!html) {
       setContent("");
       return;

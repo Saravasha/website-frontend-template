@@ -47,7 +47,7 @@ const Gallery = ({
           {assets.map((asset) => (
             <div
               className="Asset 
-                rounded shadow-lg hover:shadow-2xl flex justify-center m-4 break-inside-auto overflow-auto"
+                rounded shadow-lg hover:shadow-2xl hover:animate-pulse flex justify-center m-4 break-inside-auto "
               key={asset.id}
               onClick={() => handleClick(asset)}
             >

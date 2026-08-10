@@ -39,7 +39,7 @@ const ArtGallery = ({ isModalVisible, setIsModalVisible }) => {
           : false;
         const categoriesMatch = asset.categories
           ? asset.categories.some((cat) =>
-              cat.name.toLowerCase().includes(lowerSearch)
+              cat.name.toLowerCase().includes(lowerSearch),
             )
           : false;
 
@@ -50,7 +50,7 @@ const ArtGallery = ({ isModalVisible, setIsModalVisible }) => {
           locationMatch ||
           categoriesMatch
         );
-      })
+      }),
     );
   }, [searchTerm, assets]);
 
@@ -65,7 +65,7 @@ const ArtGallery = ({ isModalVisible, setIsModalVisible }) => {
         </h1>
       ) : (
         <>
-          <h1 className="!text-5xl sm:!text-[5vw] font-thin m-4 mx-auto flex justify-center border-transparent border-b p-4 dark:text-white text-white">
+          <h1 className="!text-5xl sm:!text-[5vw] font-thin m-4 mx-auto flex justify-center border-transparent select-none border-b p-4 dark:text-white text-white">
             Asset Gallery
           </h1>
           <AssetSearch
