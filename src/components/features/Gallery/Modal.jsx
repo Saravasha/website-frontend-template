@@ -46,7 +46,7 @@ const Modal = ({
       onClick={handleClick}
     >
       <div className="ModalAsset absolute top-0 flex justify-center w-full h-full overflow-auto">
-        <div className="flex relative flex-col ">
+        <div className="flex relative flex-col w-full h-auto ">
           <h4 className="m-4 text-[clamp(1rem,calc(2.5vw+1rem),2rem)] text-white text-center px-[20%]">
             {clickedAsset.name}
           </h4>
@@ -56,7 +56,7 @@ const Modal = ({
 
           {/* Media */}
           <div className="flex justify-center w-full p-4">
-            <AssetRenderer asset={clickedAsset} className="max-w-full h-auto" />
+            <AssetRenderer asset={clickedAsset} className="" />
           </div>
 
           {/* Description and Categories */}
@@ -72,7 +72,7 @@ const Modal = ({
             {clickedAsset.categories?.map((category) => (
               <div
                 key={category.id}
-                className="bg-gray-200 rounded-full p-2 m-1 text-sm font-semibold hover:bg-green-700 text-black"
+                className="bg-gray-200 rounded-full p-2 m-1 select-none text-sm font-semibold hover:bg-green-700 text-black"
               >
                 {category.name}
               </div>

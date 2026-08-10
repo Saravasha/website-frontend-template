@@ -15,7 +15,7 @@ export default function MobileNavbar({ isModalVisible }) {
   const navRef = useRef(null); // ← Add this
 
   const baseClass =
-    "italic  sm:text-1xl md:text-xl lg:text-2xl xl:text-3xl block text-white font-thin transition flex transform cursor-pointer hover:animate-pulse text-shadow-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] no-underline";
+    "italic  sm:text-1xl md:text-xl lg:text-2xl xl:text-3xl block text-white select-none font-thin transition flex transform cursor-pointer hover:animate-pulse text-shadow-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] no-underline";
   const activeClass = "font-thin text-gray-500 !text-gray-500";
   const inactiveClass =
     "text-white !text-white hover:text-gray-700 hover:shadow-2xl";
@@ -77,10 +77,10 @@ export default function MobileNavbar({ isModalVisible }) {
       <div className="flex justify-between items-center text-white">
         {/* MULTI-COMMITTER:PROTECTED:START MobileNavbarName */}
         <div
-          className=" italic text-5xl sm:text-5xl md:text-5xl lg:text-2xl xl:text-3xl font-thin cursor-pointer drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+          className=" italic text-5xl sm:text-5xl md:text-5xl select-none lg:text-2xl xl:text-3xl font-thin cursor-pointer drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          __PROJECT_NAME__
+          Zigi
         </div>
         {/* MULTI-COMMITTER:PROTECTED:END MobileNavbarName */}
         <div

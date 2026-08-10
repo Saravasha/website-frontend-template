@@ -5,7 +5,16 @@ import useEnv from "../hooks/useEnv";
 const ApiContext = createContext();
 
 export const ApiProvider = ({ children }) => {
-  const { assets, pages, colors, directApi, isLoading, hasError } = useApi();
+  const {
+    assets,
+    pages,
+    colors,
+    fonts,
+    settings,
+    directApi,
+    isLoading,
+    hasError,
+  } = useApi();
   const { environment } = useEnv();
   if (environment == "development" || environment == "staging")
     // Dev or Staging => log
@@ -14,8 +23,10 @@ export const ApiProvider = ({ children }) => {
       { Assets: assets },
       { Pages: pages },
       { Colors: colors },
+      { Fonts: fonts },
+      { Settings: settings },
       { directApi: directApi },
-      { isLoading: isLoading }
+      { isLoading: isLoading },
     );
   return (
     <ApiContext.Provider
@@ -24,6 +35,8 @@ export const ApiProvider = ({ children }) => {
         assets,
         pages,
         colors,
+        fonts,
+        settings,
         directApi,
         isLoading,
         hasError,

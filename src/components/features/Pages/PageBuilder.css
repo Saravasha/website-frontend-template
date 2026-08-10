@@ -1,272 +1,406 @@
-h2,
-h3,
-h4,
-h5 {
-  overflow-wrap: anywhere;
-  display: flex;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-}
+/* =========================================================
+   PAGE BUILDER
+   ========================================================= */
 
-.PageTitle,
-h2,
+.PageContainer,
+.ChapterContainer,
 .ContentContainer {
-  font-size: clamp(3.5rem, 12vw + 1rem, 8rem);
-}
-.ContentTitle,
-h3 {
-  font-size: clamp(3rem, 10vw + 1rem, 6rem);
-}
-h4 {
-  font-size: clamp(2.5rem, 8vw + 1rem, 4rem);
-}
-h5 {
-  font-size: clamp(1.5rem, 6vw + 1rem, 3rem);
-}
-.PageContainer > p,
-.PageContainer > span,
-.PageContainer > a,
-.ContentContainer > p,
-.ContentContainer > span,
-.ContentContainer > a,
-.ContentContainer span b {
-  font-size: clamp(1rem, 3vw + 1rem, 3rem);
-}
-
-/* .PageContainer > td {
-  font-size: clamp(1rem, 1vw + 4.5rem, 5rem);
-  overflow-wrap: anywhere;
-} */
-
-.PageContainer > p > img,
-.ContentContainer > p > img,
-.PageContainer > p > video,
-.ContentContainer > p > video {
-  width: 70% !important;
-  /* height: 100% !important; */
-  /* margin: 1rem; */
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  /* padding: 1rem; */
-  /* background-color: aqua; */
-  margin: 0rem;
-  gap: 1rem;
-
-  /* border: solid 4px black; */
-  background-color: rgba(255, 255, 255, 0);
-  /* box-shadow: var(--shadow-lg); */
-  /* border-radius: var(--radius-2xl); 1rem (16px) */
-}
-
-.PageContainer > p,
-.PageContainer > *,
-.ContentContainer > p,
-.ContentContainer > * {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  gap: 1rem;
-  background-color: rgba(255, 255, 255, 0);
-  /* border: solid 4px gold; */
-  /* background-color: aquamarine; */
-  margin: 0rem;
-  text-align: center;
-  /* box-shadow: var(--shadow-lg); */
-  /* border-radius: var(--radius-2xl); */
-  /* filter: drop-shadow(0 1.2px 1.2px rgba(0, 3, 3, 0.8)); */
-}
-
-.ContentContainer {
-  margin: 0rem;
+  margin-top: 1rem;
   padding-top: 1rem;
   gap: 1rem;
-}
-
-.Page {
-  box-shadow: black 1rem;
   box-shadow: var(--shadow-lg);
-  border-radius: var(--radius-2xl); /* 1rem (16px) */
 }
 
-/* .Pages {
-  background-color: rgba(25, 255, 0, 1);
-} */
-
+/* headings owned by page builder only */
 .PageTitle,
+.ChapterTitle,
 .ContentTitle {
-  /* border: solid 4px black; */
   display: flex;
   height: auto;
-  padding: calc(1rem * 2);
+  padding: 2rem;
+
   align-items: center;
   justify-content: center;
-  /* background-color: aqua; */
+
   box-shadow: var(--shadow-lg);
-  /* border-radius: var(--radius-2xl); 1rem (16px) */
 }
 
-.PageContainer {
-  /* border: double 4px black; */
-  /* background-color: black; */
-  box-shadow: var(--shadow-lg);
-  /* border-radius: var(--radius-2xl); 1rem (16px) */
+/* page builder typography */
+
+.PageTitle {
+  font-size: clamp(3.5rem, 12vw + 1rem, 8rem);
 }
 
-/* .PageContainer > * > img:hover {
-  box-shadow: var(--shadow-2xl);
-} */
-
-.ContentContainer {
-  /* border: dotted 4px red; */
-  margin-top: 1rem;
-  /* background-color: black; */
-  box-shadow: var(--shadow-lg);
-  /* border-radius: var(--radius-2xl); 1rem (16px) */
+.ChapterTitle,
+.ContentTitle {
+  font-size: clamp(3rem, 10vw + 1rem, 6rem);
 }
 
-/* wrapper class */
-/* .Wrapper {
-  height: 100vh;
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 10px;
-} */
+/* only actual page-builder content blocks */
+.PageContainer > p:not(.asset-text),
+.ChapterContainer > p:not(.asset-text),
+.ContentContainer > p:not(.asset-text) {
+  display: flex;
+  flex-direction: column;
 
-/* position: relative; */
-/* height: 100%; */
-/* width: 100%; */
-/* object-fit: cover; */
-/* z-index: -1; */
-/* transform: translateZ(-10px) scale(1.5); */
+  align-items: center;
+  justify-content: center;
 
-/* div {
-  width: 100% !important;
-} */
+  height: auto;
 
-/* [&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex */
+  margin: 0;
 
-/* [&>*]:w-full */
+  gap: 1rem;
 
-/* [&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col */
-/* 
-[&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col [&>*]:gap-4 [&>*]:m-4 [&>*]:my-4 [&>*]:mx-4 [&>*]:px-8 [&>*]:py-8 */
-/* 
-[&>*]:w-full [&>*]:justify-center [&>*]:items-center [&>*]:align-self-center [&>*]:flex [&>*]:flex-col [&>*]:gap-4 [&>*]:m-4 [&>*]:my-4 [&>*]:mx-4 [&>*]:px-8 [&>*]:py-8   */
+  text-align: center;
+}
 
-/* [style="width"] {
-  width: 100% !important;
-} */
+.PageContainer > img,
+.ChapterContainer > img,
+.ContentContainer > img,
+.PageContainer > video,
+.ChapterContainer > video,
+.ContentContainer > video {
+  /* width: 70% !important; */
 
-.ContentContainer table {
-  /* display: grid; */
+  display: flex;
+
+  margin: 0;
+
+  background: transparent;
+}
+
+/* =========================================================
+   TABLES (PAGE BUILDER)
+   ========================================================= */
+
+.ContentContainer table,
+.ChapterContainer table {
   overflow-x: auto;
+
   width: auto;
 }
-.ContentContainer tbody {
+
+.ContentContainer tbody,
+.ChapterContainer tbody {
   display: table;
+
   width: auto;
+
   margin-bottom: 1rem;
 }
-.ContentContainer tr {
+
+.ContentContainer tr,
+.ChapterContainer tr {
   display: table-row;
-  width: auto;
 }
 
-.ContentContainer td {
-  border: 1px solid white;
-  padding: 1px;
-  text-align: center;
+.ContentContainer td,
+.ChapterContainer td {
   display: table-cell;
+
+  border: 1px solid white;
+
+  padding: 1px;
+
+  text-align: center;
+
   font-size: clamp(0.5rem, 2vw + 0.75rem, 4rem);
 }
 
-/* .ContentContainer tr:nth-child(even) {
-  background-color: #b90000;
-} */
-.asset-actions {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
+/* =========================================================
+   ASSET CONTAINER
+   This is the isolation boundary
+   ========================================================= */
+
+figure.asset-document {
+  display: block !important;
+
+  width: 100%;
+
+  height: auto;
+  align-self: center;
+
+  /* margin-right: 5em; */
+
+  /* padding: 0; */
+
+  text-align: left;
+
+  font-size: 1rem;
+
+  font-weight: normal;
+}
+
+figure.asset-text > * {
+  display: block !important;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+  text-align: left;
+
+  font-size: 1rem;
+
+  font-weight: normal;
+}
+
+/* =========================================================
+   MARKDOWN RENDERER
+   ========================================================= */
+
+figure.asset-text .asset-render {
+  display: block !important;
+  background-color: gray;
+  width: 100%;
+
+  height: auto;
+
+  margin: 1rem 0;
+  padding: 0 1rem;
+
+  line-height: 1.7;
+
+  font-size: 1rem;
+
+  text-align: left;
+
+  /*
+      reset page-builder flex inheritance
+    */
+
+  flex-direction: initial !important;
+
+  align-items: initial !important;
+
+  justify-content: initial !important;
+}
+
+/* Markdown headings */
+
+figure.asset-text .asset-render h1,
+figure.asset-text .asset-render h2,
+figure.asset-text .asset-render h3,
+figure.asset-text .asset-render h4,
+figure.asset-text .asset-render h5 {
+  display: block !important;
+
+  height: auto;
+
+  overflow-wrap: anywhere;
+
+  text-align: left;
+}
+
+figure.asset-text .asset-render h1 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  margin-bottom: 1rem;
+}
+
+figure.asset-text .asset-render h2 {
+  font-size: 1.5rem;
+
+  font-weight: 700;
+
+  margin-top: 2rem;
+}
+
+figure.asset-text .asset-render h3 {
+  font-size: 1.25rem;
+
+  font-weight: 600;
+
+  margin-top: 1.5rem;
+}
+
+figure.asset-text .asset-render h4 {
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  margin-top: 1.25rem;
+}
+
+figure.asset-text .asset-render h5 {
+  font-size: 0.75rem;
+
+  font-weight: 400;
+
   margin-top: 1rem;
 }
 
-.asset-open {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-xl);
-  border-radius: var(--radius-xl);
+/* Markdown paragraphs */
+
+figure.asset-text .asset-render p {
+  display: block !important;
+
+  margin-bottom: 1rem;
+
+  text-align: left;
 }
 
-.asset-open:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-xl);
-  border-radius: var(--radius-xl);
+/* Markdown lists */
+
+figure.asset-text .asset-render ul,
+figure.asset-text .asset-render ol {
+  display: block;
+
+  padding-left: 2rem;
 }
 
+figure.asset-text .asset-render li {
+  display: list-item;
+
+  margin-bottom: 0.5rem;
+}
+
+/* Code blocks */
+
+figure.asset-text .asset-render pre {
+  display: block;
+
+  background: #1e1e1e;
+
+  color: white;
+
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+
+  overflow-x: auto;
+}
+
+figure.asset-text .asset-render code {
+  font-family: monospace;
+}
+
+/* separators */
+
+figure.asset-text .asset-render hr {
+  margin: 2rem 0;
+}
+
+/* =========================================================
+   ASSET ACTION BUTTONS
+   ========================================================= */
+
+.asset-actions {
+  display: flex;
+
+  flex-direction: row;
+
+  gap: 0.75rem;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  margin-top: 1rem;
+}
+
+.asset-open,
 .asset-download {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-xl);
-  border-radius: var(--radius-xl);
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+  margin-left: 1em;
+  width: auto;
+  min-width: 90px;
+
+  padding: 0.5rem 1rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  border-radius: 0.5rem;
+
+  box-shadow: var(--shadow-md);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.asset-open:hover,
 .asset-download:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-xl);
-  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.25);
+
+  box-shadow: var(--shadow-lg);
+
+  transform: translateY(-1px);
+}
+
+.asset-open:active,
+.asset-download:active {
+  transform: translateY(0);
+
+  box-shadow: var(--shadow-sm);
 }
 
 .asset-render {
+  display: block;
+  width: 100%;
   line-height: 1.7;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .asset-render h1 {
   font-size: 2rem;
-  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .asset-render h2 {
   font-size: 1.5rem;
-  font-weight: 700;
   margin-top: 2rem;
 }
 
 .asset-render h3 {
   font-size: 1.25rem;
-  font-weight: 600;
   margin-top: 1.5rem;
 }
 
 .asset-render h4 {
   font-size: 1rem;
-  font-weight: 500;
-  margin-top: 1.25rem;
 }
 
 .asset-render h5 {
   font-size: 0.75rem;
-  font-weight: 400;
-  margin-top: 1rem;
 }
 
 .asset-render p {
+  display: block;
   margin-bottom: 1rem;
 }
 
-.asset-render ul {
-  list-style: disc;
-  padding-left: 2rem;
-}
-
+.asset-render ul,
 .asset-render ol {
-  list-style: decimal;
   padding-left: 2rem;
 }
 
