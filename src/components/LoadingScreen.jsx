@@ -16,11 +16,11 @@ const LoadingScreen = () => {
         __PROJECT_NAME__
       </span>
       {/* MULTI-COMMITTER:PROTECTED:END LoadingScreen */}
-      <img
+      {/* <img
         className=" p-4 h-full  z-0 blur-xs top-0  flex justify-center  absolute "
-        src={bgimg}
+        // src={bgimg}
         alt="alt"
-      />
+      /> */}
       <span className="mt-8 text-[4vw] font-thin text-white animate-pulse text-center">
         Loading
       </span>
