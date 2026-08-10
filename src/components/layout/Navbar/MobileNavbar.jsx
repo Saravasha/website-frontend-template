@@ -6,13 +6,13 @@ import useColors from "../../features/Colors/useColors";
 import useRetryScrollTo from "./useRetryScrollTo";
 import { scroller } from "react-scroll";
 export default function MobileNavbar({ isModalVisible }) {
-  const { pages } = useData();
+  const { settings, isLoading, pages } = useData();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("");
   const retryScrollTo = useRetryScrollTo();
-  const navRef = useRef(null); // ← Add this
+  const navRef = useRef(null);
 
   const baseClass =
     "italic  sm:text-1xl md:text-xl lg:text-2xl xl:text-3xl block text-white select-none font-thin transition flex transform cursor-pointer hover:animate-pulse text-shadow-2xl drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] no-underline";
@@ -22,6 +22,7 @@ export default function MobileNavbar({ isModalVisible }) {
   const NavbarBgColor = useColors("Navbar Background Color") || {};
   const BurgerMenuBgColor = useColors("Hamburger Menu Background Color") || {};
   const colorInStyleText = useColors("Navbar Text Color") || {};
+  const appName = settings.branding.appName;
 
   const dryLinkProps = {
     spy: true,
@@ -80,7 +81,7 @@ export default function MobileNavbar({ isModalVisible }) {
           className=" italic text-5xl sm:text-5xl md:text-5xl select-none lg:text-2xl xl:text-3xl font-thin cursor-pointer drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          Zigi
+          {!isLoading ? appName : "__PROJECT_NAME__"}
         </div>
         {/* MULTI-COMMITTER:PROTECTED:END MobileNavbarName */}
         <div
