@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import bgimg from "../assets/comingsoonimg3.jpg";
+// import bgimg from "../assets/comingsoonimg3.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 
 const LoadingScreen = () => {
